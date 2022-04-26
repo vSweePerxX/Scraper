@@ -1,6 +1,6 @@
 import scrapy
 
-from anwaltsregisterScraper.items import AnwaltsregisterscraperItem
+from anwaltsregisterScraper.items import AnwaltsregisterscraperItem, BvaiItem
 
 
 class AnwaltsregisterScraper(scrapy.Spider):
@@ -42,3 +42,25 @@ class AnwaltsregisterScraper(scrapy.Spider):
         yield item
 
 
+class BvaiScraper(scrapy.Spider):
+    name = 'bvaiCrawler'
+    start_urls = ['https://www.bvai.de/ueber-uns/bai-mitglieder']
+
+    def parse(self, response):
+        for link in response.css('a.btn.btn-default::attr(href)'):
+            yield response.follow(link.get(), callback=self.parse_personPage)
+
+    def parse_personPage(self, response):
+        item = BvaiItem()
+
+        item['name'] = response.xpath('//h2/text()').extract_first()
+        item['adressPart1'] = response.css('div.col-8::text')[0].get()
+        item['adressPart2'] = response.css('div.col-8::text')[1].get()
+        item['partner'] = response.xpath('//div[@class="col-8"]/text()')[2].extract().replace("\r\n", "")\
+            .replace("  ", "").replace("und", " ").replace("  "," / ")
+        item['phone'] = response.xpath('//div[@class="col-8"]/text()')[3].extract()\
+            .replace("\r\n", "").replace("  ", "").replace("und ", " / ")
+        item['mail'] = " / ".join(response.xpath('//div[@class="col-8"]/a/text()[contains(., "@")]').extract())
+        item['website'] = response.xpath('//div[@class="col-8"]/a/text()[contains(., "www")]').extract_first()
+        #item['ManagingDirector_BoardMember'] = response.xpath('//div[@class="col-8"]/text()')[11].extract().replace("\r\n ", "").strip()
+        yield item

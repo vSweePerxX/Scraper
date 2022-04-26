@@ -20,3 +20,13 @@ class AnwaltsregisterscraperItem(scrapy.Item):
     email = scrapy.Field()
     website = scrapy.Field()
 
+class BvaiItem(scrapy.Item):
+
+    name = scrapy.Field()
+    adressPart1 = scrapy.Field()
+    adressPart2 = scrapy.Field()
+    partner = scrapy.Field()
+    phone = scrapy.Field()
+    mail = scrapy.Field()
+    website = scrapy.Field()
+    ManagingDirector_BoardMember = scrapy.Field()
