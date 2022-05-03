@@ -17,10 +17,10 @@ class AnwaltsregisterScraper(scrapy.Spider):
             yield response.follow(link.get(), callback=self.parse_personPage)
 
 
-        #next_page_part = response.xpath('//div[@class="navLink nextLink"]/a/@href').extract_first()
+        next_page_part = response.xpath('//div[@class="navLink nextLink"]/a/@href').extract_first()
 
-        #if next_page_part is not None:
-         #   yield scrapy.Request(next_page_part, callback=self.parse)
+        if next_page_part is not None:
+            yield scrapy.Request(next_page_part, callback=self.parse)
 
 
 
