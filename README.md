@@ -38,3 +38,9 @@ Diese Datei ist ein Sammeldokument aller Daten.
 ## Mergen der Verschiedenen Outputs für die Bundesländer
 1. Mit dem Terminal in den Ordner wechseln in dem die Bundesländer.json dateien liegen
 2. Mit dem Befehl: `jq -s . resultsHessen.json resultsBayern.json  resultsNRW > resultsAll.json` werden alle einzelnen Dateien in eine `All` Date geschrieben
+
+## Installieren von MySQL
+1. Den Server von https://dev.mysql.com/downloads/mysql/ downloaden
+2. Die Workbench von https://dev.mysql.com/downloads/workbench/ downloaden
+3. Workbench öffnen und neue connection anlegen
+4. Neues Schema anlegen und die resultsAll.json importieren
