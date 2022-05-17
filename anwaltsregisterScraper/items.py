@@ -7,18 +7,18 @@ import scrapy
 
 class AnwaltsregisterscraperItem(scrapy.Item):
     # define the fields for your item here like:
-    calledTitle = scrapy.Field()
-    name = scrapy.Field()
-    jobTitle = scrapy.Field()
-    street_nr = scrapy.Field()
-    postcode = scrapy.Field()
-    addressLocality = scrapy.Field()
-    state = scrapy.Field()
-    tel = scrapy.Field()
-    mobile = scrapy.Field()
-    fax = scrapy.Field()
-    email = scrapy.Field()
-    website = scrapy.Field()
+    Title = scrapy.Field()
+    Name = scrapy.Field()
+    Spezialisierung = scrapy.Field()
+    Straße_Hausnummer = scrapy.Field()
+    PLZ = scrapy.Field()
+    Ort = scrapy.Field()
+    Bundesland = scrapy.Field()
+    Festnetz = scrapy.Field()
+    Mobile = scrapy.Field()
+    Fax = scrapy.Field()
+    Email = scrapy.Field()
+    Website = scrapy.Field()
 
 class BvaiItem(scrapy.Item):
 
@@ -30,3 +30,11 @@ class BvaiItem(scrapy.Item):
     mail = scrapy.Field()
     website = scrapy.Field()
     ManagingDirector_BoardMember = scrapy.Field()
+
+class GelbeSeitenItem(scrapy.Item):
+
+    name = scrapy.Field()
+    #spezifikation = scrapy.Field()
+    straße_Hausnummer = scrapy.Field()
+    PLZ = scrapy.Field()
+    Branche = scrapy.Field()

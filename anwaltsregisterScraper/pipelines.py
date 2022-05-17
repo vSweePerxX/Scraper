@@ -6,7 +6,6 @@
 
 # useful for handling different item types with a single interface
 
-
 class AnwaltsregisterscraperPipeline:
     def process_item(self, item, spider):
         return item

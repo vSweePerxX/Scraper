@@ -6,12 +6,16 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+from shutil import which
 
 BOT_NAME = 'anwaltsregisterScraper'
 
 SPIDER_MODULES = ['anwaltsregisterScraper.spiders']
 NEWSPIDER_MODULE = 'anwaltsregisterScraper.spiders'
 
+SELENIUM_DRIVER_NAME = 'chrome'
+SELENIUM_DRIVER_EXECUTABLE_PATH = which('anwaltsregisterScraper/webDriver/chromedriver')
+SELENIUM_DRIVER_ARGUMENTS=['--headless']
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'anwaltsregisterScraper (+http://www.yourdomain.com)'
