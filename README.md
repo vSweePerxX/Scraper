@@ -35,6 +35,6 @@ Diese Datei ist ein Sammeldokument aller Daten.
     
     Der Output wird in den anwaltsregisterScraper Ordner geschrieben
     
-##Mergen der Verschiedenen Outputs für die Bundesländer
+## Mergen der Verschiedenen Outputs für die Bundesländer
 1. Mit dem Terminal in den Ordner wechseln in dem die Bundesländer.json dateien liegen
 2. Mit dem Befehl: `jq -s . resultsHessen.json resultsBayern.json  resultsNRW > resultsAll.json` werden alle einzelnen Dateien in eine `All` Date geschrieben
